@@ -130,11 +130,11 @@
       }
     </style>
   </head>
-  <body class="container">
-    <div id="app" class="container-fluid text-center pt-5">
-      <div class="text-justify pb-3" style="font-size: 3.25rem">
-        <span class="">{{gretting}}</span>
-        <span class=""><b>{{you}},</b></span>
+  <body class="container-fluid">
+    <div id="app" class="text-center pt-5">
+      <div class="pb-1">
+        <span class="h1">{{gretting}}</span>
+        <span class="h1"><b>{{you}},</b></span>
       </div>
       <div class="pt-2 pb-3">
         <button @click="changeActitude" class="btn btn-light">
@@ -167,7 +167,7 @@
       data: {
         gretting: "Hi", // Estado saludo
         grettingMessage: null, // Saludo
-        you: "Alexandra",
+        you: "Alee",
         message: "Hello Vue alex!",
         phrasesForShe: [
           "Me siento feliz cuando me miras.",
