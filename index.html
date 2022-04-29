@@ -47,8 +47,7 @@
       }
 
       body {
-        margin: 0;
-        margin-top: 60px;
+        margin: 60px 0 0;
         padding: 0;
         font-family: "Open Sans", "Noto Sans", HelveticaNeueCyr, Helvetica,
           sans-serif;
@@ -80,12 +79,10 @@
         padding: 20px;
       }
 
-      /* ========== 04. Mike ========== */
-
       .t-bq-quote-mike {
         position: relative;
-        border-top: 0.45em solid darkslateblue;
-        border-bottom: 0.45em solid darkslateblue;
+        border-top: 0.45em dotted #ffb3b3;
+        border-bottom: 0.45em dotted #ffb3b3;
         padding: 20px 0 !important;
         letter-spacing: -0.08em;
         transform: rotate(2deg);
@@ -94,7 +91,7 @@
       .t-bq-quote-mike .t-bq-quote-mike-qmark {
         position: absolute;
         font-size: 10em;
-        color: midnightblue;
+        color: #f99e9e;
         opacity: 0.2;
         bottom: 10px;
         right: 0;
@@ -108,14 +105,14 @@
         font-weight: bold;
         font-size: 2.4rem;
         line-height: 1.3em;
-        color: darkslateblue;
+        color: #ffb3b3;
       }
 
       .t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text:after {
         content: "\2014\00A0"attr(cite);
         display: block;
         font-size: 0.5em;
-        color: midnightblue;
+        color: #f99e9e;
         text-transform: capitalize;
         letter-spacing: 0.03em;
         font-weight: bold;
@@ -130,35 +127,41 @@
       }
     </style>
   </head>
-  <body class="container-fluid">
+  <body class="container-fluid pb-5 pt-5">
     <div id="app" class="text-center pt-5">
-      <div class="pb-1">
-        <span class="h1">{{gretting}}</span>
-        <span class="h1"><b>{{you}},</b></span>
+      <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem">
+        <span style="color: #f55656">{{gretting}}</span>
+        <span style="color: #f55656"><b>{{you}},</b></span>
       </div>
-      <div class="pt-2 pb-3">
-        <button @click="changeActitude" class="btn btn-light">
+      <div class="pt-2 pb-0">
+        <div @click="changeActitude" class="btn btn-transparent">
           <span>{{grettingMessage}}</span>
-        </button>
-      </div>
-      <div class="pt-5">
-        <button @click="myPhrase" class="btn btn-light">
-          <span class="font-lg">❤️ messages for me 💪</span>
-        </button>
+        </div>
       </div>
 
-      <section class="t-bq-section" id="mike">
-        <div class="t-bq-wrapper t-bq-wrapper-boxed">
-          <div class="t-bq-quote t-bq-quote-mike">
-            <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-            <div class="t-bq-quote-mike-base">
-              <blockquote class="t-bq-quote-mike-text" cite="By Alex Christian">
-                {{phrase}}
-              </blockquote>
+      <div class="pt-5">
+        <!--        <div class="col-12 ">-->
+        <!--          <div>-->
+        <!--          <button @click="myPhrase" class="btn btn-secondary btn-lg">-->
+        <!--            <span class="font-lg">❤️ I want a message 💪</span>-->
+        <!--          </button>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div class="col-12">
+          <section @click="myPhrase" class="t-bq-section" id="mike">
+            <div class="t-bq-wrapper t-bq-wrapper-boxed">
+              <div class="t-bq-quote t-bq-quote-mike">
+                <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+                <div class="t-bq-quote-mike-base">
+                  <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
+                    {{phrase}}
+                  </blockquote>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   </body>
   <script>
