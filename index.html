@@ -127,40 +127,42 @@
       }
     </style>
   </head>
-  <body class="container-fluid pb-5 pt-5">
+  <body class="container-fluid pb-5">
     <div id="app" class="text-center pt-5">
+      <!--      Saludo-->
       <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem">
         <span style="color: #f55656">{{gretting}}</span>
         <span style="color: #f55656"><b>{{you}},</b></span>
       </div>
+
+      <!--      Estado saludo-->
       <div class="pt-2 pb-0">
         <div @click="changeActitude" class="btn btn-transparent">
           <span>{{grettingMessage}}</span>
         </div>
       </div>
 
+      <!--      Mensaje-->
       <div class="pt-5">
-        <!--        <div class="col-12 ">-->
+        <!--        <div class="col-12">-->
         <!--          <div>-->
-        <!--          <button @click="myPhrase" class="btn btn-secondary btn-lg">-->
-        <!--            <span class="font-lg">❤️ I want a message 💪</span>-->
-        <!--          </button>-->
+        <!--            <button @click="myPhrase" class="btn btn-secondary btn-lg">-->
+        <!--              <span class="font-lg">❤️ I want a message 💪</span>-->
+        <!--            </button>-->
         <!--          </div>-->
         <!--        </div>-->
-        <div class="col-12">
-          <section @click="myPhrase" class="t-bq-section" id="mike">
-            <div class="t-bq-wrapper t-bq-wrapper-boxed">
-              <div class="t-bq-quote t-bq-quote-mike">
-                <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-                <div class="t-bq-quote-mike-base">
-                  <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
-                    {{phrase}}
-                  </blockquote>
-                </div>
+        <section @click="myPhrase" class="t-bq-section" id="mike">
+          <div class="t-bq-wrapper t-bq-wrapper-boxed">
+            <div class="t-bq-quote t-bq-quote-mike">
+              <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+              <div class="t-bq-quote-mike-base">
+                <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
+                  {{phrase}}
+                </blockquote>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </div>
   </body>
