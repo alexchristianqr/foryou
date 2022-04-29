@@ -1,0 +1,14 @@
+{
+  "name": "for-aleee",
+  "version": "1.0.0",
+  "description": "\"\"\u001b[DFrases motivadoras para ella",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
