@@ -128,12 +128,12 @@
       }
     </style>
   </head>
-  <body class="container">
-    <div id="app" class="text-center">
+  <body>
+    <div id="app" class="container text-center">
       <!-- Botones -->
       <div class="form-group pb-5">
         <div class="row">
-          <div class="col-lg-6 col-sm-12 mx-auto">
+          <div class="col-lg-6 col-md-10 col-sm-12 mx-auto">
             <div class="d-flex overflow-auto">
               <template v-for="action in actions">
                 <b-button
@@ -153,7 +153,7 @@
       <!-- Ella -->
       <div class="form-group">
         <div class="row">
-          <div class="col-lg-5 col-sm-8 mx-auto">
+          <div class="col-lg-6 col-md-12 col-sm-8 mx-auto">
             <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem">
               <span style="color: #f55656">{{gretting}}</span>
               <span style="color: #f55656"><b>{{you}},</b></span>
@@ -170,39 +170,45 @@
 
       <!-- Dato -->
       <div class="form-group pb-5">
-        <section
-          v-if="displayAction.action === 'frases'"
-          @click="randomData"
-          class="t-bq-section"
-        >
-          <div class="t-bq-wrapper t-bq-wrapper-boxed">
-            <div class="t-bq-quote t-bq-quote-mike">
-              <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-              <div class="t-bq-quote-mike-base">
-                <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
-                  {{displayAction.view}}
-                </blockquote>
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-8 mx-auto">
+            <section
+              v-if="displayAction.action === 'frases'"
+              @click="randomData"
+              class="t-bq-section"
+            >
+              <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                <div class="t-bq-quote t-bq-quote-mike">
+                  <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+                  <div class="t-bq-quote-mike-base">
+                    <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
+                      {{displayAction.view}}
+                    </blockquote>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          v-if="displayAction.action === 'chistes'"
-          @click="randomData"
-          class="t-bq-section"
-        >
-          <div class="t-bq-wrapper t-bq-wrapper-boxed">
-            <div class="t-bq-quote t-bq-quote-mike">
-              <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-              <div class="t-bq-quote-mike-base">
-                <blockquote class="t-bq-quote-mike-text" cite="Alex Chistian">
-                  {{displayAction.view}}
-                </blockquote>
+            </section>
+            <section
+              v-if="displayAction.action === 'chistes'"
+              @click="randomData"
+              class="t-bq-section"
+            >
+              <div class="t-bq-wrapper t-bq-wrapper-boxed">
+                <div class="t-bq-quote t-bq-quote-mike">
+                  <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+                  <div class="t-bq-quote-mike-base">
+                    <blockquote
+                      class="t-bq-quote-mike-text"
+                      cite="Alex Chistian"
+                    >
+                      {{displayAction.view}}
+                    </blockquote>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </body>
