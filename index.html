@@ -137,7 +137,6 @@
               <template v-for="action in actions">
                 <b-button
                   variant="outline-danger"
-                  size="lg"
                   :class="{'active':action.key == displayAction.action}"
                   @click="clickAction(action)"
                   class="m-1"
@@ -151,7 +150,7 @@
       </div>
 
       <!-- Saludo-->
-      <div class="form-group pb-5">
+      <div class="form-group">
         <div class="row">
           <div class="col-lg-5 col-sm-8 mx-auto">
             <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem">
@@ -346,6 +345,11 @@
           action: null,
           data: [],
           view: null,
+          color: {
+            primary: null,
+            secondary: null,
+            tertiary: null,
+          },
         },
         phrase:
           "Only you have the power to be happy when, where and how! we are fine 👍.",
@@ -612,6 +616,7 @@
           const action = this.actions[0];
           this.displayAction.action = action.key;
           this.displayAction.data = action.data;
+          this.randomData();
         },
         clickAction(action) {
           switch (action.key) {
