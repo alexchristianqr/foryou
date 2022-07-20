@@ -55,6 +55,7 @@
         left: 50%;
         margin-top: -45px;
         margin-left: -50px;
+        opacity: 0.15;
       }
       .heart:before,
       .heart:after {
@@ -262,13 +263,21 @@
       <div class="form-group pb-4">
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-8 mx-auto">
-            <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem">
+            <div
+              @click="changeActitude"
+              class="pb-3"
+              style="font-size: 3.5rem; margin-bottom: 0.5rem"
+            >
               <span style="color: #f55656">{{gretting}}</span>
-              <span style="color: #f55656"><b>{{you}},</b></span>
+              <span style="color: #f55656"><b>{{youGirl}},</b></span>
             </div>
             <!-- Estado saludo-->
             <div class="form-group">
-              <div @click="changeActitude" class="btn btn-transparent">
+              <div
+                @click="changeActitude"
+                class="btn btn-light"
+                style="opacity: 0.7"
+              >
                 <span>{{grettingMessage}}</span>
               </div>
             </div>
@@ -278,18 +287,19 @@
 
       <!-- Dato -->
       <div class="form-group pb-5">
-        <div class="heart heart-bg"></div>
-        <div class="heart heart-main"></div>
-        <section
-          v-if="displayAction.action === 'frases'"
-          @click="randomData"
-          class="t-bq-section"
-        >
+        <section v-if="displayAction.action === 'frases'" class="t-bq-section">
           <div class="t-bq-wrapper t-bq-wrapper-boxed">
             <div class="t-bq-quote t-bq-quote-mike">
               <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-              <div class="t-bq-quote-mike-base">
-                <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
+              <div
+                class="t-bq-quote-mike-base"
+                style="cursor: pointer"
+                @click="randomData"
+              >
+                <!--Corazon-->
+                <div class="heart heart-main" style="z-index: 1"></div>
+                <!---->
+                <blockquote class="t-bq-quote-mike-text" :cite="creator">
                   {{displayAction.view}}
                 </blockquote>
               </div>
@@ -305,7 +315,7 @@
             <div class="t-bq-quote t-bq-quote-mike">
               <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
               <div class="t-bq-quote-mike-base">
-                <blockquote class="t-bq-quote-mike-text" cite="Alex Ch.">
+                <blockquote class="t-bq-quote-mike-text" :cite="creator">
                   {{displayAction.view}}
                 </blockquote>
               </div>
@@ -316,12 +326,14 @@
     </div>
   </body>
   <script>
+    const forYou = "bonita";
     new Vue({
       el: "#app",
       data: {
+        creator: "Alex Christian",
         gretting: "Hi", // Estado saludo
         grettingMessage: null, // Saludo
-        you: "Alee",
+        youGirl: forYou,
         phrasesForShe: [
           "Me siento feliz cuando me miras.",
           "Solo puedo pensar en ti",
@@ -466,76 +478,76 @@
         typeGrettings: [
           {
             gretting: "Oye",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Como estás hoy ❤️",
           },
           {
             gretting: "Hum",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Seguro estás con hambre 👀",
           },
           {
             gretting: "Oye",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Te han dicho que hoy estas bien bonita 👀 👉👈",
           },
           {
             gretting: "Sabes",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage:
               "Me dijeron que las personas felices son las que se sienten bien y que no se sienten mal. 😊",
           },
           {
             gretting: "Ah",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage:
               "Tu sabías que si te gusta una persona, te empiezas a preocupar más por ella o él 😊",
           },
           {
             gretting: "Oye",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Y si vamos a comer unas buenas hamburguesas 😊",
           },
           {
             gretting: "Eh",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Don gato y doña claudia están bien 👀",
           },
           {
             gretting: "Sabes",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage:
               "Quiero que me ayudes a sacar buenas calificaciones 😊",
           },
           {
             gretting: "Oye",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Aunque parezca que no estoy ahí, estoy ahí 😊",
           },
           {
             gretting: "Oye",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Yo soy muy bueno, pero tú eres mejor que yó 😊",
           },
           {
             gretting: "Sabes",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage:
               "Cuando estes triste, pídeme un abrazo 😊 con confianza 😊",
           },
           {
             gretting: "Uy",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Se me antojo una pizza 🍕 jajaja",
           },
           {
             gretting: "Uy",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage: "Tenemos que ir a la playa 🏖 ponle fecha 😊",
           },
           {
             gretting: "Uy",
-            you: "Alee",
+            youGirl: forYou,
             grettingMessage:
               "hoy es un bonito día para salir a hacer eso que pasó por tu cabeza 😊",
           },
@@ -780,8 +792,8 @@
           return this.typeGrettings[randomNumber];
         },
         changeActitude() {
-          const { you, gretting, grettingMessage } = this.getRandomValues();
-          this.you = you;
+          const { youGirl, gretting, grettingMessage } = this.getRandomValues();
+          this.youGirl = youGirl;
           this.gretting = gretting;
           this.grettingMessage = grettingMessage;
         },
