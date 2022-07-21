@@ -15,7 +15,8 @@ set -e
 git tag -a -m "new tag release v$tagVersion" "v$tagVersion"
 git push origin "v$tagVersion"
 
-git commit -m "new deployment for release v$tagVersion"
-git push origin gh-pages
+#git commit -m "new deployment for release v$tagVersion"
+#git push origin -f gh-pages
+git push -f git@github.com:alexchristianqr/foryou.git master:gh-pages
 
 cd -
