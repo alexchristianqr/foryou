@@ -1,4 +1,4 @@
-# foryouv2
+# foryou
 
 ## Project setup
 ```
