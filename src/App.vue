@@ -1,18 +1,18 @@
 <template>
-  <div id="app" class="container-lg">
+  <div class="container-lg">
     <ForYou />
   </div>
 </template>
 
 <script>
-import ForYou from "@/components/foryou";
+import ForYou from '@/components/foryou'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     ForYou,
   },
-};
+}
 </script>
 
 <style></style>
