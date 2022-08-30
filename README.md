@@ -1,24 +1,27 @@
-# foryou
+# Project: foryou
 
-## Project setup
-```
-npm install
-```
+Para ti es una aplicación web de entretenimiento y motivación inspirado en ella (My Love). Está lleno de mensajes super bonitos.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Automatic tag
+
+```bash
+git tag # Listar ascendente
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+```bash
+git tag --sort=-v:refname # Listar descendiente
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```bash
+sh ghpages.sh 0.2.5 # Ejecutar shell script
+```
+
+## Manually tag
+
+```bash
+git tag -a 0.2.X -m "version 0.2.X" # Comentar version tag
+```
+
+```bash
+git push -f git@github.com:alexchristianqr/foryou.git master:gh-pages # Link repositorio github
+```
