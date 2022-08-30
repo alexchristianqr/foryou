@@ -25,23 +25,23 @@ blockquote {
   position: relative;
   border-top: 0.45em dotted $tertiary;
   border-bottom: 0.45em dotted $tertiary;
-  padding: 20px 0 !important;
+  padding: 10px 0 !important;
   letter-spacing: -0.08em;
-  transform: rotate(3.5deg);
+  transform: rotate(-5deg);
 }
 
 /* Frase */
 .t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text {
   font-weight: bold;
   font-size: 1.75rem;
-  line-height: 1.5em;
+  line-height: 1.25em;
   color: $secondary;
 }
 
 /* Icono */
 .t-bq-quote-mike .t-bq-quote-mike-qmark {
   position: absolute;
-  font-size: 6.75em;
+  font-size: 10em;
   color: $secondary;
   opacity: 0.2;
   bottom: 10px;
@@ -50,13 +50,14 @@ blockquote {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  line-height: 0.1;
 }
 
 /* Alex Christian */
 .t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text:after {
   content: '\2014\00A0'attr(cite) '\2014\00A0';
   display: block;
-  font-size: 0.5em;
+  font-size: 0.65em;
   color: $tertiary;
   text-transform: capitalize;
   letter-spacing: 0.025em;

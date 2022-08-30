@@ -51,6 +51,7 @@
                 <div class="t-bq-quote-mike-base" style="cursor: pointer" @click="randomData">
                   <!--Corazon-->
                   <div class="heart heart-main" style="z-index: 1"></div>
+                  <span class="ec ec-joy"></span>
                   <!---->
                   <blockquote class="t-bq-quote-mike-text" :cite="creator">
                     {{ displayAction.view }}

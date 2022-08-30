@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import '@/assets/plugins/embed_v1.0.10.js'
+// import '@/assets/plugins/embed_v1.0.10.js'
 export default {
   name: 'Tiktok',
   data: () => ({
@@ -26,20 +26,23 @@ export default {
 
   methods: {
     async getVideoTiktok() {
-      const url = `https://www.tiktok.com/oembed?url=https://www.tiktok.com/@tonycano2003/video/7137351805855419654?is_from_webapp=1&sender_device=pc&web_id=7137529634711864837`
-      let response = await fetch(url)
+      try {
+        const url = `https://www.tiktok.com/oembed?url=https://www.tiktok.com/@tonycano2003/video/7137351805855419654?is_from_webapp=1&sender_device=pc&web_id=7137529634711864837`
+        let response = await fetch(url)
+        if (!response.ok) {
+          console.error(response)
+          return
+        }
 
-      if (response.ok) {
         // if HTTP-status is 200-299
         // get the response body (the method explained below)
         let json = await response.json()
         console.log(json)
-        // <\/script>
         let first = json.html.replace(`<script async src="https://www.tiktok.com/embed.js">`, '')
         let second = first.replace('/script', '')
         this.embedHtml = second.replace('<>', '')
-      } else {
-        alert('HTTP-Error: ' + response.status)
+      } catch (e) {
+        console.error(e)
       }
     },
   },

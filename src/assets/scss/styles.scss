@@ -6,6 +6,7 @@
 @import '@/assets/scss/heart.scss';
 /* Estilos blockquote */
 @import '@/assets/scss/blockquote.scss';
+@import '@/assets/scss/reproductor.scss';
 
 * {
   box-sizing: border-box;
@@ -14,10 +15,30 @@
 }
 
 body {
-  padding: 0;
+  //padding: 0;
   font-family: 'Open Sans', 'Noto Sans', HelveticaNeueCyr, Helvetica, sans-serif;
-  line-height: 1.68em;
-  color: #333333;
+  //line-height: 1.68em;
+  //color: #333333;
+
+  /* Location of the image */
+  background-image: url("./assets/images/girasol.png");
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+  the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+  on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+  while the background image is loading */
   background-color: #fbf7e5;
 }
 
@@ -29,9 +50,14 @@ body {
 }
 
 .button-foryou {
-  color: $tertiary;
-  border-color: $border_primary;
   background-color: $primary;
+  color: $secondary;
+  border-color: $secondary;
+}
+.btn.focus,
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 @media screen and (max-width: 768px) {
