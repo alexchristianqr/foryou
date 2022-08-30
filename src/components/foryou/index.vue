@@ -100,7 +100,7 @@ export default {
       timer: '0:00',
       interval: '0.00',
     },
-    creator: 'Alex Christian',
+    creator: 'Alex Christian 🥰',
     gretting: 'Hola', // Estado saludo
     grettingMessage: null, // Saludo
     youGirl: forYou,
@@ -483,7 +483,7 @@ export default {
       },
       {
         key: 'videos',
-        title: '📽️ Distraerte con TikTok',
+        title: '📽️ Ver tus TikTok',
         data: [],
       },
       {

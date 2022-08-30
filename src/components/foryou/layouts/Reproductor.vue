@@ -30,7 +30,7 @@
             </b-col>
           </b-row>
         </b-button>
-        <b-button v-if="!fileAudio.isPlaying" @click="playAudio(fileMusic)" class="my-auto button-foryou" size="lg" variant="transparent">
+        <b-button v-if="!fileAudio.isPlaying" @click="playAudio(labelSound)" class="my-auto button-foryou" size="lg" variant="transparent">
           <b-row>
             <b-col cols="3" class="my-auto">
               <b-icon icon="play"></b-icon>
@@ -58,27 +58,33 @@ export default {
     labelMusic: String,
   },
   data: () => ({
-    fileMusic: '1.mp3',
     timerInterval: null,
   }),
+  computed:{
+    labelSound(){
+      return '1.mp3'
+    }
+  },
   mounted() {
-    switch (this.displayAction.action) {
+    const folder = this.displayAction.action
+    let labelSound = null
+    switch (folder) {
       case 'frases':
-        this.fileMusic = '1.mp3'
+        labelSound = '1.mp3'
         break
       case 'chistes':
-        this.fileMusic = '3.mp3'
+        labelSound = '1.mp3'
         break
       default:
         console.error('Not support case action')
         break
     }
-    this.defaultAudio(this.fileMusic)
+    this.defaultAudio({ folder, labelSound })
   },
   methods: {
-    defaultAudio(sound, startPlaying = false) {
+    defaultAudio({ folder, labelSound, startPlaying = false }) {
       const getSound = () => {
-        return require(`@/assets/sounds/${sound ? sound : '1.mp3'}`)
+        return require(`@/assets/sounds/${folder}/${labelSound ? labelSound : '1.mp3'}`)
       }
       const src = getSound()
       if (!src) return
@@ -98,12 +104,14 @@ export default {
       )
 
       if (startPlaying) {
-        this.playAudio(sound)
+        const folder = this.displayAction.action
+        this.playAudio({ folder, labelSound })
       }
     },
-    playAudio(sound) {
+    playAudio(labelSound) {
       if (!this.fileAudio.audio) {
-        this.defaultAudio(sound)
+        const folder = this.displayAction.action
+        this.defaultAudio({ folder, labelSound })
       }
 
       this.timerInterval = setInterval(() => {
@@ -135,14 +143,16 @@ export default {
     'fileAudio.audio'(value) {
       if (this.timerInterval) clearInterval(this.timerInterval)
       if (value) return
-      switch (this.displayAction.action) {
+      const folder = this.displayAction.action
+      let labelSound = null
+      switch (folder) {
         case 'frases':
-          this.fileMusic = '1.mp3'
-          this.defaultAudio('1.mp3', false)
+          labelSound = '1.mp3'
+          this.defaultAudio({ folder, labelSound })
           break
         case 'chistes':
-          this.fileMusic = '3.mp3'
-          this.defaultAudio('3.mp3', false)
+          labelSound = '1.mp3'
+          this.defaultAudio({ folder, labelSound })
           break
         case 'videos':
           if (this.timerInterval) clearInterval(this.timerInterval)
