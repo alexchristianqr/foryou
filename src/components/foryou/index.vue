@@ -1,78 +1,97 @@
 <template>
-  <div class="text-center">
-    <!-- Botones -->
-    <div class="form-group pb-5">
-      <div class="row">
-        <div class="col-lg-6 col-md-10 col-sm-12 mx-auto">
+  <b-row>
+    <b-col xl="4" lg="6" md="8" sm="12" class="my-auto mx-auto">
+      <div class="text-center">
+        <!-- Botones -->
+        <div class="py-1 px-1">
+          <!--          <div class="row">-->
+          <!--            <div class="col-lg-6 col-md-10 col-sm-12 mx-auto">-->
           <div class="d-flex overflow-auto">
-            <b-button v-for="(action, k) in actions" :key="k" variant="outline-danger" :class="{ active: action.key == displayAction.action }" @click="clickAction(action)" class="m-1">
+            <b-button
+              v-for="(action, k) in actions"
+              :key="k"
+              variant="outline-danger"
+              :class="{ active: action.key == displayAction.action, 'button-foryou': true }"
+              @click="clickAction(action)"
+              class="m-1"
+            >
               <span class="text-truncate">{{ action.title }}</span>
             </b-button>
           </div>
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
-      </div>
-    </div>
 
-    <!-- Ella -->
-    <div class="form-group pb-4">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-8 mx-auto">
-          <div @click="changeActitude" class="pb-3" style="font-size: 3.5rem; margin-bottom: 0.5rem">
-            <span class="mr-1" style="color: #f55656">{{ gretting }}</span>
-            <span style="color: #f55656"
-              ><b>{{ youGirl }},</b></span
-            >
-          </div>
-          <!-- Estado saludo-->
-          <div class="form-group">
-            <div @click="changeActitude" class="btn btn-light" style="opacity: 0.7">
-              <span>{{ grettingMessage }}</span>
+        <!-- Ella -->
+        <div class="py-3">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-8 mx-auto title-foryou">
+              <span @click="changeActitude" class="h1">
+                <span class="mr-1">{{ gretting }},</span>
+                <span>
+                  <b>{{ youGirl }}</b>
+                </span>
+              </span>
+              <!-- Estado saludo-->
+              <div class="form-group subtitle-foryou">
+                <div @click="changeActitude" class="" style="opacity: 0.85">
+                  <span>{{ grettingMessage }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Dato -->
-    <div class="form-group pb-5">
-      <section v-if="displayAction.action === 'frases'" class="t-bq-section">
-        <div class="t-bq-wrapper t-bq-wrapper-boxed">
-          <div class="t-bq-quote t-bq-quote-mike">
-            <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-            <div class="t-bq-quote-mike-base" style="cursor: pointer" @click="randomData">
-              <!--Corazon-->
-              <div class="heart heart-main" style="z-index: 1"></div>
-              <!---->
-              <blockquote class="t-bq-quote-mike-text" :cite="creator">
-                {{ displayAction.view }}
-              </blockquote>
+        <!-- Dato -->
+        <div class="py-1">
+          <section v-if="displayAction.action === 'frases'" class="py-2 px-4">
+            <div class="t-bq-wrapper t-bq-wrapper-boxed">
+              <div class="t-bq-quote t-bq-quote-mike">
+                <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+                <div class="t-bq-quote-mike-base" style="cursor: pointer" @click="randomData">
+                  <!--Corazon-->
+                  <div class="heart heart-main" style="z-index: 1"></div>
+                  <!---->
+                  <blockquote class="t-bq-quote-mike-text" :cite="creator">
+                    {{ displayAction.view }}
+                  </blockquote>
+                </div>
+              </div>
             </div>
+          </section>
+          <section v-if="displayAction.action === 'chistes'" @click="randomData" class="py-2 px-4">
+            <div class="t-bq-wrapper t-bq-wrapper-boxed">
+              <div class="t-bq-quote t-bq-quote-mike">
+                <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
+                <div class="t-bq-quote-mike-base">
+                  <blockquote class="t-bq-quote-mike-text" :cite="creator">
+                    {{ displayAction.view }}
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div v-if="displayAction.action === 'videos'" @click="randomData" class="py-2 px-4">
+            <Tiktok />
           </div>
         </div>
-      </section>
-      <section v-if="displayAction.action === 'chistes'" @click="randomData" class="t-bq-section">
-        <div class="t-bq-wrapper t-bq-wrapper-boxed">
-          <div class="t-bq-quote t-bq-quote-mike">
-            <div class="t-bq-quote-mike-qmark"><span>&#10077;</span></div>
-            <div class="t-bq-quote-mike-base">
-              <blockquote class="t-bq-quote-mike-text" :cite="creator">
-                {{ displayAction.view }}
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
+
+        <Reproductor class="pt-2" />
+      </div>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
-const forYou = 'chica'
+import Tiktok from '@/components/foryou/layouts/Tiktok'
+import Reproductor from '@/components/foryou/layouts/Reproductor'
+const forYou = 'michi'
 export default {
   name: 'ForYou',
+  components: { Reproductor, Tiktok },
   data: () => ({
     creator: 'Alex Christian',
-    gretting: 'Hi', // Estado saludo
+    gretting: 'Hola', // Estado saludo
     grettingMessage: null, // Saludo
     youGirl: forYou,
     phrasesForShe: [
@@ -439,23 +458,32 @@ export default {
       },
       {
         key: 'videos',
-        title: '📽️ Videos',
+        title: '📽️ TikTok',
         data: [],
       },
       {
-        key: 'moda',
-        title: '🌟 Moda',
+        key: 'reals',
+        title: '📽️ Reals',
         data: [],
       },
       {
-        key: 'animals',
-        title: 'Animales',
+        key: 'yutube',
+        title: '📽️ YouTube',
         data: [],
       },
       {
         key: 'news',
-        title: 'Noticias',
+        title: '📰 Noticias del día',
         data: [],
+      },
+    ],
+    themes: [
+      {
+        color_1: '#F5C705',
+        color_2: '#B86D07',
+        color_3: '#222A0F',
+        color_4: '#733D0A',
+        color_5: '#7D7530',
       },
     ],
   }),
@@ -506,11 +534,11 @@ export default {
       let time = new Date()
       let hour = time.getHours()
       if (hour >= 0 && hour < 12) {
-        this.grettingMessage = 'good morning 🌼'
+        this.grettingMessage = 'buenos dias 🌼'
       } else if (hour >= 12 && hour < 18) {
-        this.grettingMessage = 'good afternoon ☀️'
+        this.grettingMessage = 'buenas tardes ☀️'
       } else if (hour >= 18 && hour < 24) {
-        this.grettingMessage = 'good evening 🌙'
+        this.grettingMessage = 'buenas noches 🌙'
       }
     },
     getRandomValues() {

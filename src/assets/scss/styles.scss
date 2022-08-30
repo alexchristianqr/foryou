@@ -1,0 +1,41 @@
+/* Variables */
+@import '@/assets/scss/_variables.scss';
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+/* Estilos del corazon */
+@import '@/assets/scss/heart.scss';
+/* Estilos blockquote */
+@import '@/assets/scss/blockquote.scss';
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  padding: 0;
+  font-family: 'Open Sans', 'Noto Sans', HelveticaNeueCyr, Helvetica, sans-serif;
+  line-height: 1.68em;
+  color: #333333;
+  background-color: #fbf7e5;
+}
+
+.title-foryou {
+  color: $primary;
+}
+.subtitle-foryou {
+  color: $tertiary;
+}
+
+.button-foryou {
+  color: $tertiary;
+  border-color: $border_primary;
+  background-color: $primary;
+}
+
+@media screen and (max-width: 768px) {
+  .t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text:after {
+    margin-left: 0;
+  }
+}

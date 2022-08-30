@@ -1,0 +1,66 @@
+blockquote {
+  padding: 0;
+  margin: 0;
+}
+
+//section.t-bq-section {
+//  //padding: 30px;
+//  margin-bottom: 60px;
+//}
+
+.t-bq-wrapper.t-bq-wrapper-boxed {
+  max-width: 576px;
+  margin: 0 auto;
+}
+
+.t-bq-wrapper.t-bq-wrapper-fullwidth {
+  max-width: 100%;
+}
+
+//.t-bq-wrapper .t-bq-quote {
+//  padding: 20px;
+//}
+
+.t-bq-quote-mike {
+  position: relative;
+  border-top: 0.45em dotted $tertiary;
+  border-bottom: 0.45em dotted $tertiary;
+  padding: 20px 0 !important;
+  letter-spacing: -0.08em;
+  transform: rotate(3.5deg);
+}
+
+/* Frase */
+.t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text {
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 1.5em;
+  color: $secondary;
+}
+
+/* Icono */
+.t-bq-quote-mike .t-bq-quote-mike-qmark {
+  position: absolute;
+  font-size: 6.75em;
+  color: $secondary;
+  opacity: 0.2;
+  bottom: 10px;
+  right: 0;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Alex Christian */
+.t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text:after {
+  content: '\2014\00A0'attr(cite) '\2014\00A0';
+  display: block;
+  font-size: 0.5em;
+  color: $tertiary;
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+  margin-left: -1.38em;
+  margin-top: 1rem;
+}

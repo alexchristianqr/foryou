@@ -1,5 +1,5 @@
 <template>
-  <div class="container-lg">
+  <div class="overflow-hidden">
     <ForYou />
   </div>
 </template>
@@ -15,4 +15,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/bootstrap-vue/dist/bootstrap-vue.min.css';
+@import '@/assets/scss/styles.scss';
+</style>
