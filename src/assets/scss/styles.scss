@@ -15,10 +15,7 @@
 }
 
 body {
-  //padding: 0;
   font-family: 'Open Sans', 'Noto Sans', HelveticaNeueCyr, Helvetica, sans-serif;
-  //line-height: 1.68em;
-  //color: #333333;
 
   /* Location of the image */
   background-image: url("./assets/images/girasol.png");
@@ -48,16 +45,20 @@ body {
 .subtitle-foryou {
   color: $tertiary;
 }
-
 .button-foryou {
   background-color: $primary;
   color: $secondary;
   border-color: $secondary;
 }
+
 .btn.focus,
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+.btn.active{
+  background-color: $secondary;
+  color: $color_letter;
 }
 
 @media screen and (max-width: 768px) {

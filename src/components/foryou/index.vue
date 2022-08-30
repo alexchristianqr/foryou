@@ -2,15 +2,14 @@
   <b-row>
     <b-col xl="4" lg="6" md="8" sm="12" class="my-auto mx-auto">
       <div class="text-center">
-        <!-- Botones -->
-        <div class="py-1 px-1">
-          <!--          <div class="row">-->
-          <!--            <div class="col-lg-6 col-md-10 col-sm-12 mx-auto">-->
+        <!-- Menu -->
+        <div>
           <div class="d-flex overflow-auto">
             <b-button
               v-for="(action, k) in actions"
               :key="k"
-              variant="outline-danger"
+              variant="transparent"
+              size="lg"
               :class="{ active: action.key == displayAction.action, 'button-foryou': true }"
               @click="clickAction(action)"
               class="m-1"
@@ -18,29 +17,30 @@
               <span class="text-truncate">{{ action.title }}</span>
             </b-button>
           </div>
-          <!--            </div>-->
-          <!--          </div>-->
         </div>
+        <!---->
 
         <!-- Ella -->
         <div class="py-3">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-8 mx-auto title-foryou">
-              <span @click="changeActitude" class="h1">
+          <b-row>
+            <b-col lg="6" md="12" sm="12" class="mx-auto title-foryou">
+              <!-- Mensaje titulo -->
+              <div @click="changeActitude" class="h1 px-1">
                 <span class="mr-1">{{ gretting }},</span>
                 <span>
                   <b>{{ youGirl }}</b>
                 </span>
-              </span>
-              <!-- Estado saludo-->
-              <div class="form-group subtitle-foryou">
+              </div>
+              <!-- Mensaje subtitulo -->
+              <div class="px-2 pb-3 subtitle-foryou">
                 <div @click="changeActitude" class="" style="opacity: 0.85">
                   <span>{{ grettingMessage }}</span>
                 </div>
               </div>
-            </div>
-          </div>
+            </b-col>
+          </b-row>
         </div>
+        <!---->
 
         <!-- Dato -->
         <div class="py-1">
@@ -76,8 +76,11 @@
             <Tiktok />
           </div>
         </div>
+        <!---->
 
-        <Reproductor class="pt-2" />
+        <!-- Reproductor de musica -->
+        <Reproductor v-if="displayAction.action == 'frases' || displayAction.action == 'chistes'" :fileAudio="fileAudio" :displayAction="displayAction" class="pt-2" />
+        <!---->
       </div>
     </b-col>
   </b-row>
@@ -91,6 +94,12 @@ export default {
   name: 'ForYou',
   components: { Reproductor, Tiktok },
   data: () => ({
+    fileAudio: {
+      isPlaying: false,
+      audio: null,
+      timer: '0:00',
+      interval: '0.00',
+    },
     creator: 'Alex Christian',
     gretting: 'Hola', // Estado saludo
     grettingMessage: null, // Saludo
@@ -225,7 +234,7 @@ export default {
       'Tu eres mi persona favorita Y aunque no siempre lo ando diciendo Es buen momento decirte que te quiero Te quiero, te quiero y siempre asi será. (Río Roma)',
     ],
     displayAction: {
-      action: null,
+      action: 'frases',
       data: [],
       view: null,
       color: {
@@ -254,7 +263,7 @@ export default {
       {
         gretting: 'Sabes',
         youGirl: forYou,
-        grettingMessage: 'Me dijeron que las personas felices son las que se sienten bien y que no se sienten mal. 😊',
+        grettingMessage: 'Me dijeron que las personas super felices estan bien consigo mismos 😊 y obvio con su pareja tambien',
       },
       {
         gretting: 'Ah',
@@ -269,17 +278,17 @@ export default {
       {
         gretting: 'Eh',
         youGirl: forYou,
-        grettingMessage: 'Don gato y doña claudia están bien 👀',
+        grettingMessage: 'Vamos a RUPAC 👀',
       },
       {
         gretting: 'Sabes',
         youGirl: forYou,
-        grettingMessage: 'Quiero que me ayudes a sacar buenas calificaciones 😊',
+        grettingMessage: 'Quiero que me ayudes a ser mejor 😊',
       },
       {
         gretting: 'Oye',
         youGirl: forYou,
-        grettingMessage: 'Aunque parezca que no estoy ahí, estoy ahí 😊',
+        grettingMessage: 'Aunque parezca que no estoy ahí, creeme estoy ahí 😊',
       },
       {
         gretting: 'Oye',
@@ -289,12 +298,12 @@ export default {
       {
         gretting: 'Sabes',
         youGirl: forYou,
-        grettingMessage: 'Cuando estes triste, pídeme un abrazo 😊 con confianza 😊',
+        grettingMessage: 'Cuando estes triste, pídeme un abrazo 😊 con confianza 😊 dale go',
       },
       {
         gretting: 'Uy',
         youGirl: forYou,
-        grettingMessage: 'Se me antojo una pizza 🍕 jajaja',
+        grettingMessage: 'Se me antojo una pizza 🍕 tu tambien quieres jaja',
       },
       {
         gretting: 'Uy',
@@ -304,13 +313,28 @@ export default {
       {
         gretting: 'Uy',
         youGirl: forYou,
-        grettingMessage: 'hoy es un bonito día para salir a hacer eso que pasó por tu cabeza 😊',
+        grettingMessage: 'hoy es un bonito día para salir, a hacer eso que pasó por tu cabeza 😊',
+      },
+      {
+        gretting: 'Oye',
+        youGirl: forYou,
+        grettingMessage: 'Si estes choclex 😊 te puedo hacer tamalitos',
+      },
+      {
+        gretting: 'Oye',
+        youGirl: forYou,
+        grettingMessage: 'Solo un factor decisivo es lo que falta 😊 en u corazón',
+      },
+      {
+        gretting: 'Oye',
+        youGirl: forYou,
+        grettingMessage: 'Todos tenemos una mente creativa, pero un virgo como yó es otro level 😊 xD',
       },
     ],
     actions: [
       {
         key: 'frases',
-        title: '❤️ Frases',
+        title: '❤ Enamorarte',
         data: [
           'Me siento feliz cuando me miras.',
           'Solo puedo pensar en ti',
@@ -443,7 +467,7 @@ export default {
       },
       {
         key: 'chistes',
-        title: '🤪 Chistes',
+        title: '🤪 Hacerte reir',
         data: [
           'Había un gato con 16 vidas, lo aplastó un 4x4 y se murió.',
           'A ver Jaimito, ¿Como se llama el compuesto químico que evita el embarazo? -Nitrato de meterlo!',
@@ -459,17 +483,17 @@ export default {
       },
       {
         key: 'videos',
-        title: '📽️ TikTok',
+        title: '📽️ Distraerte con TikTok',
         data: [],
       },
       {
         key: 'reals',
-        title: '📽️ Reals',
+        title: '📽️ Divertidos Reals',
         data: [],
       },
       {
         key: 'yutube',
-        title: '📽️ YouTube',
+        title: '📽️ Cortos de YouTube',
         data: [],
       },
       {
@@ -500,6 +524,12 @@ export default {
       this.randomData()
     },
     clickAction(action) {
+      if (this.fileAudio.audio) {
+        this.fileAudio.audio.pause()
+        this.fileAudio.interval = '0:00'
+        this.fileAudio.isPlaying = false
+        this.fileAudio.audio = null
+      }
       switch (action.key) {
         case 'frases':
           this.displayAction.action = action.key

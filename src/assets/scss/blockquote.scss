@@ -3,11 +3,6 @@ blockquote {
   margin: 0;
 }
 
-//section.t-bq-section {
-//  //padding: 30px;
-//  margin-bottom: 60px;
-//}
-
 .t-bq-wrapper.t-bq-wrapper-boxed {
   max-width: 576px;
   margin: 0 auto;
@@ -17,17 +12,13 @@ blockquote {
   max-width: 100%;
 }
 
-//.t-bq-wrapper .t-bq-quote {
-//  padding: 20px;
-//}
-
 .t-bq-quote-mike {
   position: relative;
   border-top: 0.45em dotted $tertiary;
   border-bottom: 0.45em dotted $tertiary;
   padding: 10px 0 !important;
   letter-spacing: -0.08em;
-  transform: rotate(-5deg);
+  transform: rotate(-2.5deg);
 }
 
 /* Frase */
@@ -50,18 +41,18 @@ blockquote {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  line-height: 0.1;
+  line-height: 0;
 }
 
 /* Alex Christian */
 .t-bq-quote-mike .t-bq-quote-mike-base .t-bq-quote-mike-text:after {
-  content: '\2014\00A0'attr(cite) '\2014\00A0';
+  content: '\2014\00A0'attr(cite)' \2014\00A0';
   display: block;
   font-size: 0.65em;
   color: $tertiary;
   text-transform: capitalize;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.005em;
   font-weight: bold;
-  margin-left: -1.38em;
-  margin-top: 1rem;
+  //margin-left: 1.38em;
+  margin-top: 2rem;
 }
