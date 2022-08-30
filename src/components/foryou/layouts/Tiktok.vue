@@ -23,7 +23,7 @@ export default {
   data: () => ({
     embedHtml: null,
   }),
-  created() {
+  beforeMount() {
     require('@/assets/plugins/embed_v1.0.10.js')
   },
   async mounted() {
