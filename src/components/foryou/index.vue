@@ -23,10 +23,10 @@
         <!-- Ella -->
         <div class="py-3">
           <b-row>
-            <b-col lg="6" md="12" sm="12" class="mx-auto title-foryou">
+            <b-col lg="7" md="12" sm="12" class="mx-auto title-foryou">
               <!-- Mensaje titulo -->
               <div @click="changeActitude" class="h1 px-1">
-                <span class="mr-1">{{ gretting }},</span>
+                <!--                <span class="mr-1">{{ gretting }},</span>-->
                 <span>
                   <b>{{ youGirl }}</b>
                 </span>
@@ -72,7 +72,7 @@
               </div>
             </div>
           </section>
-          <div v-if="displayAction.action === 'videos'" @click="randomData" class="py-2 px-4">
+          <div v-if="displayAction.action === 'videos'" @click="randomData" class="py-2 px-4" style="margin-bottom: 12em">
             <Tiktok />
           </div>
         </div>
@@ -89,7 +89,7 @@
 <script>
 import Tiktok from '@/components/foryou/layouts/Tiktok'
 import Reproductor from '@/components/foryou/layouts/Reproductor'
-const forYou = 'michi'
+const forYou = '❤ LILIANA ❤'
 export default {
   name: 'ForYou',
   components: { Reproductor, Tiktok },
@@ -258,7 +258,17 @@ export default {
       {
         gretting: 'Oye',
         youGirl: forYou,
-        grettingMessage: 'Te han dicho que hoy estas bien bonita 👀 👉👈',
+        grettingMessage: 'Te he dicho que hoy estas bien bonita 👉👈',
+      },
+      {
+        gretting: 'Oye',
+        youGirl: forYou,
+        grettingMessage: 'Te he dicho que hoy estas super hermosa 👉👈',
+      },
+      {
+        gretting: 'Oye',
+        youGirl: forYou,
+        grettingMessage: 'Te he dicho que, ohhh! me tienes profundamente enamorado 👉👈',
       },
       {
         gretting: 'Sabes',
@@ -318,12 +328,12 @@ export default {
       {
         gretting: 'Oye',
         youGirl: forYou,
-        grettingMessage: 'Si estes choclex 😊 te puedo hacer tamalitos',
+        grettingMessage: 'Si estas choclex 😊 te puedo hacer tamalitos',
       },
       {
         gretting: 'Oye',
         youGirl: forYou,
-        grettingMessage: 'Solo un factor decisivo es lo que falta 😊 en u corazón',
+        grettingMessage: 'Solo un factor decisivo es lo que falta 😊 en tu corazón',
       },
       {
         gretting: 'Oye',
@@ -481,26 +491,26 @@ export default {
           '- Amor, de ahora en adelante te llamaré Eva por ser mi primera mujer.\n- Vale cariño, pues yo te llamaré dálmata por ser el 101. ',
         ],
       },
-      {
-        key: 'videos',
-        title: '📽️ Ver tus TikTok',
-        data: [],
-      },
-      {
-        key: 'reals',
-        title: '📽️ Divertidos Reals',
-        data: [],
-      },
-      {
-        key: 'yutube',
-        title: '📽️ Cortos de YouTube',
-        data: [],
-      },
-      {
-        key: 'news',
-        title: '📰 Noticias del día',
-        data: [],
-      },
+      // {
+      //   key: 'videos',
+      //   title: '📽️ Ver tus TikTok',
+      //   data: [],
+      // },
+      // {
+      //   key: 'reals',
+      //   title: '📽️ Divertidos Reals',
+      //   data: [],
+      // },
+      // {
+      //   key: 'yutube',
+      //   title: '📽️ Cortos de YouTube',
+      //   data: [],
+      // },
+      // {
+      //   key: 'news',
+      //   title: '📰 Noticias del día',
+      //   data: [],
+      // },
     ],
     themes: [
       {
