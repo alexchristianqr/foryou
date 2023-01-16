@@ -73,13 +73,12 @@
             </div>
           </section>
           <div v-if="displayAction.action === 'videos'" @click="randomData" class="py-2 px-4" style="margin-bottom: 12em">
-            <Tiktok />
           </div>
         </div>
         <!---->
 
         <!-- Reproductor de musica -->
-        <Reproductor v-if="displayAction.action == 'frases' || displayAction.action == 'chistes'" :fileAudio="fileAudio" :displayAction="displayAction" class="pt-2" />
+        <Reproductor v-if="displayAction.action === 'frases' || displayAction.action === 'chistes'" :fileAudio="fileAudio" :displayAction="displayAction" class="pt-2" />
         <!---->
       </div>
     </b-col>
@@ -87,12 +86,11 @@
 </template>
 
 <script>
-import Tiktok from '@/components/foryou/layouts/Tiktok'
 import Reproductor from '@/components/foryou/layouts/Reproductor'
 const forYou = '❤ CRUSH ❤'
 export default {
   name: 'ForYou',
-  components: { Reproductor, Tiktok },
+  components: { Reproductor },
   data: () => ({
     fileAudio: {
       isPlaying: false,
