@@ -89,7 +89,7 @@
 <script>
 import Tiktok from '@/components/foryou/layouts/Tiktok'
 import Reproductor from '@/components/foryou/layouts/Reproductor'
-const forYou = '❤ LILIANA ❤'
+const forYou = '❤ CRUSH ❤'
 export default {
   name: 'ForYou',
   components: { Reproductor, Tiktok },
